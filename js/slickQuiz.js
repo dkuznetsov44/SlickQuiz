@@ -205,9 +205,12 @@
                             questionHTML.append('<a href="#" class="button ' + backToQuestionClass + '">' + plugin.config.backButtonText + '</a>');
                         }
 
+                        var procentProgress = (count / questionCount * 100) + '%';
+
                         // If response messaging is disabled or hidden until the quiz is completed,
                         // make the nextQuestion button the checkAnswer button, as well
                         if (plugin.config.disableResponseMessaging || plugin.config.completionResponseMessaging) {
+                            questionHTML.append('<div class="progress"><span style="width: ' + procentProgress + '"></span></div>');
                             questionHTML.append('<a href="#" class="button ' + nextQuestionClass + ' ' + checkAnswerClass + '">' + plugin.config.nextQuestionText + '</a>');
                         } else {
                             questionHTML.append('<a href="#" class="button ' + nextQuestionClass + '">' + plugin.config.nextQuestionText + '</a>');
